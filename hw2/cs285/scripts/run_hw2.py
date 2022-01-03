@@ -94,7 +94,7 @@ def main():
     # note that, to avoid confusion, you don't even have a train_batch_size argument anymore (above)
     params['train_batch_size'] = params['batch_size']
 
-##################################
+    ##################################
     ### CREATE DIRECTORY FOR LOGGING
     ##################################
 
@@ -105,7 +105,7 @@ def main():
     if not (os.path.exists(data_path)):
         os.makedirs(data_path)
 
-    logdir = logdir_prefix + args.exp_name + '_' + args.env_name + '_' + time.strftime("%d-%m-%Y_%H-%M-%S")
+    logdir = logdir_prefix + args.exp_name + '_' + args.env_name + '_' + time.strftime("%Y-%m-%d_%H-%M-%S")
     logdir = os.path.join(data_path, logdir)
     params['logdir'] = logdir
     if not(os.path.exists(logdir)):
