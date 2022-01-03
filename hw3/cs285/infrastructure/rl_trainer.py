@@ -137,7 +137,9 @@ class RL_Trainer(object):
         print_period = 1000 if isinstance(self.agent, DQNAgent) else 1
 
         for itr in range(n_iter):
-            if itr % print_period == 0:
+            self.print = (itr % print_period == 0)
+
+            if self.print:
                 print("\n\n********** Iteration %i ************"%itr)
 
             # decide if videos should be rendered/logged at this iteration
@@ -180,7 +182,7 @@ class RL_Trainer(object):
             self.agent.add_to_replay_buffer(paths)
 
             # train agent (using sampled data from replay buffer)
-            if itr % print_period == 0:
+            if self.print:
                 print("\nTraining agent...")
             all_logs = self.train_agent()
 
@@ -210,12 +212,55 @@ class RL_Trainer(object):
             envsteps_this_batch: the sum over the numbers of environment steps in paths
             train_video_paths: paths which also contain videos for visualization purposes
         """
-        # TODO: get this from hw1 or hw2
+
+        # TODO decide whether to load training data or use the current policy to collect more data
+        # HINT: depending on if it's the first iteration or not, decide whether to either
+                # (1) load the data. In this case you can directly return as follows
+                # ``` return loaded_paths, 0, None ```
+
+                # (2) collect `self.params['batch_size']` transitions
+
+        # TODO collect `batch_size` samples to be used for training
+        # HINT1: use sample_trajectories from utils
+        # HINT2: you want each of these collected rollouts to be of length self.params['ep_len']
+        print("\nCollecting data to be used for training...")
+        if itr == 0 and initial_expertdata:
+            with open(initial_expertdata, 'rb') as f:
+                loaded_paths = pickle.loads(f.read())
+            return loaded_paths, 0, None
+        else:
+            paths, envsteps_this_batch = utils.sample_trajectories(
+                self.env, collect_policy, num_transitions_to_sample, self.params['ep_len'])
+
+        # collect more rollouts with the same policy, to be saved as videos in tensorboard
+        # note: here, we collect MAX_NVIDEO rollouts, each of length MAX_VIDEO_LEN
+        train_video_paths = None
+        if self.logvideo:
+            print('\nCollecting train rollouts to be used for saving videos...')
+            ## TODO look in utils and implement sample_n_trajectories
+            train_video_paths = utils.sample_n_trajectories(self.env, collect_policy, MAX_NVIDEO, MAX_VIDEO_LEN, True)
 
         return paths, envsteps_this_batch, train_video_paths
 
     def train_agent(self):
-        # TODO: get this from hw1 or hw2
+        if self.print:
+            print('\nTraining agent using sampled data from replay buffer...')
+        all_logs = []
+        for train_step in range(self.params['num_agent_train_steps_per_iter']):
+
+            # TODO sample some data from the data buffer
+            # HINT1: use the agent's sample function
+            # HINT2: how much data = self.params['train_batch_size']
+            sample_returns = self.agent.sample(self.params['train_batch_size'])
+            ob_batch, ac_batch, re_batch, next_ob_batch, terminal_batch = sample_returns
+
+            # TODO use the sampled data to train an agent
+            # HINT: use the agent's train function
+            # HINT: keep the agent's training log for debugging
+            train_log = self.agent.train(
+                ob_batch, ac_batch, re_batch, next_ob_batch, terminal_batch)
+            all_logs.append(train_log)
+        return all_logs
 
     ####################################
     ####################################
