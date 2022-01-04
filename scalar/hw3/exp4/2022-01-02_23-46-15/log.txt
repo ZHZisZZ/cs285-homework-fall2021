@@ -1,0 +1,4547 @@
+#!/bin/bash
+export PYTHONPATH=.
+
+DATA_DIR=./data
+EXP_DIR=${DATA_DIR}/exp4/`date +%Y-%m-%d_%H-%M-%S`
+LOG_PATH=${EXP_DIR}/log.txt
+# clear other data files
+rm -rf $(find ${DATA_DIR} -maxdepth 1 -name '*q4_*' 2> /dev/null)
+# create data directory for this experiment and logfile
+mkdir -p $EXP_DIR; touch $LOG_PATH
+# dump experiment commands and hyperparameters (this file) to logfile
+cat $0 >> $LOG_PATH; echo "\n\n" >> $LOG_PATH
+
+python cs285/scripts/run_hw3_actor_critic.py --env_name CartPole-v0 -n 100 -b 1000 --exp_name q4_ac_1_1 -ntu 1 -ngsptu 1 >> $LOG_PATH
+python cs285/scripts/run_hw3_actor_critic.py --env_name CartPole-v0 -n 100 -b 1000 --exp_name q4_ac_100_1 -ntu 100 -ngsptu 1 >> $LOG_PATH
+python cs285/scripts/run_hw3_actor_critic.py --env_name CartPole-v0 -n 100 -b 1000 --exp_name q4_ac_1_100 -ntu 1 -ngsptu 100 >> $LOG_PATH
+python cs285/scripts/run_hw3_actor_critic.py --env_name CartPole-v0 -n 100 -b 1000 --exp_name q4_ac_10_10 -ntu 10 -ngsptu 10 >> $LOG_PATH
+
+# move data file to experiment data directory
+mv $(find ${DATA_DIR} -maxdepth 1 -name '*q4_*' 2> /dev/null) $EXP_DIR
+
+
+
+
+
+
+LOGGING TO:  /home/zzh/Desktop/CS285/cs285-homework-fall2021/hw3/cs285/scripts/../../data/q4_ac_1_1_CartPole-v0_02-01-2022_23-46-16 
+
+
+
+########################
+logging outputs to  /home/zzh/Desktop/CS285/cs285-homework-fall2021/hw3/cs285/scripts/../../data/q4_ac_1_1_CartPole-v0_02-01-2022_23-46-16
+########################
+Using GPU id 0
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 25.235294342041016
+Eval_StdReturn : 11.694792747497559
+Eval_MaxReturn : 54.0
+Eval_MinReturn : 12.0
+Eval_AverageEpLen : 25.235294117647058
+Train_AverageReturn : 27.648649215698242
+Train_StdReturn : 12.643160820007324
+Train_MaxReturn : 65.0
+Train_MinReturn : 11.0
+Train_AverageEpLen : 27.64864864864865
+Train_EnvstepsSoFar : 1023
+TimeSinceStart : 0.9165916442871094
+Critic_Loss : 1.0069377422332764
+Actor_Loss : -0.006163817830383778
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 1 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 2 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 3 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 4 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 5 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 6 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 7 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 8 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 9 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 10 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 13.0
+Eval_StdReturn : 2.0478155612945557
+Eval_MaxReturn : 17.0
+Eval_MinReturn : 10.0
+Eval_AverageEpLen : 13.0
+Train_AverageReturn : 13.333333015441895
+Train_StdReturn : 2.1123974323272705
+Train_MaxReturn : 18.0
+Train_MinReturn : 9.0
+Train_AverageEpLen : 13.333333333333334
+Train_EnvstepsSoFar : 11133
+TimeSinceStart : 4.234810829162598
+Critic_Loss : 1.894164800643921
+Actor_Loss : -0.06014181300997734
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 11 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 12 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 13 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 14 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 15 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 16 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 17 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 18 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 19 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 20 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 9.325581550598145
+Eval_StdReturn : 0.738349199295044
+Eval_MaxReturn : 11.0
+Eval_MinReturn : 8.0
+Eval_AverageEpLen : 9.325581395348838
+Train_AverageReturn : 9.481132507324219
+Train_StdReturn : 0.7298375368118286
+Train_MaxReturn : 11.0
+Train_MinReturn : 8.0
+Train_AverageEpLen : 9.481132075471699
+Train_EnvstepsSoFar : 21181
+TimeSinceStart : 7.51288104057312
+Critic_Loss : 7.495331287384033
+Actor_Loss : -0.08125801384449005
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 21 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 22 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 23 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 24 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 25 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 26 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 27 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 28 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 29 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 30 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 9.181818008422852
+Eval_StdReturn : 0.6833316683769226
+Eval_MaxReturn : 10.0
+Eval_MinReturn : 8.0
+Eval_AverageEpLen : 9.181818181818182
+Train_AverageReturn : 9.533333778381348
+Train_StdReturn : 0.7311655282974243
+Train_MaxReturn : 11.0
+Train_MinReturn : 8.0
+Train_AverageEpLen : 9.533333333333333
+Train_EnvstepsSoFar : 31211
+TimeSinceStart : 10.79374885559082
+Critic_Loss : 10.318921089172363
+Actor_Loss : 0.0020685007330030203
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 31 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 32 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 33 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 34 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 35 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 36 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 37 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 38 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 39 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 40 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 9.571428298950195
+Eval_StdReturn : 0.8491692543029785
+Eval_MaxReturn : 11.0
+Eval_MinReturn : 8.0
+Eval_AverageEpLen : 9.571428571428571
+Train_AverageReturn : 9.345794677734375
+Train_StdReturn : 0.6985005140304565
+Train_MaxReturn : 12.0
+Train_MinReturn : 8.0
+Train_AverageEpLen : 9.345794392523365
+Train_EnvstepsSoFar : 41256
+TimeSinceStart : 14.187893629074097
+Critic_Loss : 7.956918239593506
+Actor_Loss : 0.004830922931432724
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 41 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 42 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 43 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 44 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 45 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 46 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 47 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 48 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 49 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 50 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 9.25
+Eval_StdReturn : 0.829156219959259
+Eval_MaxReturn : 11.0
+Eval_MinReturn : 8.0
+Eval_AverageEpLen : 9.25
+Train_AverageReturn : 9.30555534362793
+Train_StdReturn : 0.7130832672119141
+Train_MaxReturn : 11.0
+Train_MinReturn : 8.0
+Train_AverageEpLen : 9.305555555555555
+Train_EnvstepsSoFar : 51302
+TimeSinceStart : 17.61093544960022
+Critic_Loss : 0.7639917135238647
+Actor_Loss : 6.402976850949926e-06
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 51 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 52 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 53 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 54 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 55 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 56 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 57 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 58 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 59 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 60 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 9.418604850769043
+Eval_StdReturn : 0.6553024649620056
+Eval_MaxReturn : 11.0
+Eval_MinReturn : 8.0
+Eval_AverageEpLen : 9.418604651162791
+Train_AverageReturn : 9.433961868286133
+Train_StdReturn : 0.7270886898040771
+Train_MaxReturn : 11.0
+Train_MinReturn : 8.0
+Train_AverageEpLen : 9.433962264150944
+Train_EnvstepsSoFar : 61335
+TimeSinceStart : 20.992360591888428
+Critic_Loss : 1.2264025211334229
+Actor_Loss : 3.37373603542801e-06
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 61 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 62 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 63 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 64 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 65 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 66 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 67 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 68 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 69 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 70 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 9.372093200683594
+Eval_StdReturn : 0.747810959815979
+Eval_MaxReturn : 11.0
+Eval_MinReturn : 8.0
+Eval_AverageEpLen : 9.372093023255815
+Train_AverageReturn : 9.296296119689941
+Train_StdReturn : 0.7729125022888184
+Train_MaxReturn : 11.0
+Train_MinReturn : 8.0
+Train_AverageEpLen : 9.296296296296296
+Train_EnvstepsSoFar : 71372
+TimeSinceStart : 24.440189361572266
+Critic_Loss : 1.115686297416687
+Actor_Loss : -2.822858505169279e-06
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 71 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 72 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 73 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 74 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 75 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 76 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 77 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 78 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 79 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 80 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 9.25
+Eval_StdReturn : 0.772392988204956
+Eval_MaxReturn : 11.0
+Eval_MinReturn : 8.0
+Eval_AverageEpLen : 9.25
+Train_AverageReturn : 9.462264060974121
+Train_StdReturn : 0.8261587023735046
+Train_MaxReturn : 11.0
+Train_MinReturn : 8.0
+Train_AverageEpLen : 9.462264150943396
+Train_EnvstepsSoFar : 81432
+TimeSinceStart : 27.72802734375
+Critic_Loss : 3.6315808296203613
+Actor_Loss : -4.4586981857719366e-06
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 81 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 82 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 83 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 84 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 85 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 86 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 87 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 88 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 89 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 90 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 9.227272987365723
+Eval_StdReturn : 0.669587254524231
+Eval_MaxReturn : 11.0
+Eval_MinReturn : 8.0
+Eval_AverageEpLen : 9.227272727272727
+Train_AverageReturn : 9.40186882019043
+Train_StdReturn : 0.7216261029243469
+Train_MaxReturn : 11.0
+Train_MinReturn : 8.0
+Train_AverageEpLen : 9.401869158878505
+Train_EnvstepsSoFar : 91475
+TimeSinceStart : 31.082568168640137
+Critic_Loss : 7.593832969665527
+Actor_Loss : -4.572896159515949e-06
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 91 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 92 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 93 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 94 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 95 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 96 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 97 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 98 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 99 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+
+LOGGING TO:  /home/zzh/Desktop/CS285/cs285-homework-fall2021/hw3/cs285/scripts/../../data/q4_ac_100_1_CartPole-v0_02-01-2022_23-46-54 
+
+
+
+########################
+logging outputs to  /home/zzh/Desktop/CS285/cs285-homework-fall2021/hw3/cs285/scripts/../../data/q4_ac_100_1_CartPole-v0_02-01-2022_23-46-54
+########################
+Using GPU id 0
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 29.14285659790039
+Eval_StdReturn : 21.346988677978516
+Eval_MaxReturn : 103.0
+Eval_MinReturn : 12.0
+Eval_AverageEpLen : 29.142857142857142
+Train_AverageReturn : 27.648649215698242
+Train_StdReturn : 12.643160820007324
+Train_MaxReturn : 65.0
+Train_MinReturn : 11.0
+Train_AverageEpLen : 27.64864864864865
+Train_EnvstepsSoFar : 1023
+TimeSinceStart : 0.9840130805969238
+Critic_Loss : 10.572774887084961
+Actor_Loss : -0.02399287559092045
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 1 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 2 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 3 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 4 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 5 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 6 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 7 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 8 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 9 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 10 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 134.25
+Eval_StdReturn : 38.822513580322266
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 101.0
+Eval_AverageEpLen : 134.25
+Train_AverageReturn : 160.57142639160156
+Train_StdReturn : 35.78849411010742
+Train_MaxReturn : 200.0
+Train_MinReturn : 118.0
+Train_AverageEpLen : 160.57142857142858
+Train_EnvstepsSoFar : 11611
+TimeSinceStart : 5.238508462905884
+Critic_Loss : 4.768277645111084
+Actor_Loss : -0.0013979326467961073
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 11 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 12 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 13 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 14 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 15 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 16 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 17 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 18 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 19 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 20 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 83.19999694824219
+Eval_StdReturn : 13.9053955078125
+Eval_MaxReturn : 100.0
+Eval_MinReturn : 61.0
+Eval_AverageEpLen : 83.2
+Train_AverageReturn : 90.83333587646484
+Train_StdReturn : 18.28858184814453
+Train_MaxReturn : 123.0
+Train_MinReturn : 58.0
+Train_AverageEpLen : 90.83333333333333
+Train_EnvstepsSoFar : 22552
+TimeSinceStart : 9.571226119995117
+Critic_Loss : 43.37350082397461
+Actor_Loss : 0.038525644689798355
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 21 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 22 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 23 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 24 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 25 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 26 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 27 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 28 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 29 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 30 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 157.6666717529297
+Eval_StdReturn : 59.868370056152344
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 73.0
+Eval_AverageEpLen : 157.66666666666666
+Train_AverageReturn : 113.66666412353516
+Train_StdReturn : 20.548046112060547
+Train_MaxReturn : 148.0
+Train_MinReturn : 77.0
+Train_AverageEpLen : 113.66666666666667
+Train_EnvstepsSoFar : 33051
+TimeSinceStart : 13.775967597961426
+Critic_Loss : 47.78504180908203
+Actor_Loss : -0.00782065186649561
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 31 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 32 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 33 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 34 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 35 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 36 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 37 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 38 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 39 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 40 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 200.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 200.0
+Train_AverageReturn : 200.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 200.0
+Train_MinReturn : 200.0
+Train_AverageEpLen : 200.0
+Train_EnvstepsSoFar : 44007
+TimeSinceStart : 18.132936000823975
+Critic_Loss : 17.24982261657715
+Actor_Loss : 0.0014447766589000821
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 41 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 42 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 43 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 44 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 45 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 46 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 47 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 48 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 49 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 50 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 200.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 200.0
+Train_AverageReturn : 200.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 200.0
+Train_MinReturn : 200.0
+Train_AverageEpLen : 200.0
+Train_EnvstepsSoFar : 54007
+TimeSinceStart : 22.176201581954956
+Critic_Loss : 17.50946044921875
+Actor_Loss : 0.01643582247197628
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 51 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 52 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 53 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 54 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 55 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 56 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 57 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 58 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 59 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 60 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 136.3333282470703
+Eval_StdReturn : 17.441967010498047
+Eval_MaxReturn : 161.0
+Eval_MinReturn : 124.0
+Eval_AverageEpLen : 136.33333333333334
+Train_AverageReturn : 154.2857208251953
+Train_StdReturn : 11.522826194763184
+Train_MaxReturn : 168.0
+Train_MinReturn : 134.0
+Train_AverageEpLen : 154.28571428571428
+Train_EnvstepsSoFar : 64226
+TimeSinceStart : 26.2829749584198
+Critic_Loss : 55.13990783691406
+Actor_Loss : -0.01928415708243847
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 61 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 62 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 63 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 64 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 65 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 66 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 67 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 68 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 69 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 70 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 64.28571319580078
+Eval_StdReturn : 13.487710952758789
+Eval_MaxReturn : 83.0
+Eval_MinReturn : 46.0
+Eval_AverageEpLen : 64.28571428571429
+Train_AverageReturn : 65.25
+Train_StdReturn : 12.695963859558105
+Train_MaxReturn : 87.0
+Train_MinReturn : 46.0
+Train_AverageEpLen : 65.25
+Train_EnvstepsSoFar : 74831
+TimeSinceStart : 30.536253452301025
+Critic_Loss : 50.077640533447266
+Actor_Loss : 0.030250713229179382
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 71 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 72 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 73 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 74 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 75 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 76 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 77 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 78 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 79 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 80 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 73.33333587646484
+Eval_StdReturn : 7.6084747314453125
+Eval_MaxReturn : 85.0
+Eval_MinReturn : 67.0
+Eval_AverageEpLen : 73.33333333333333
+Train_AverageReturn : 73.21428680419922
+Train_StdReturn : 15.124147415161133
+Train_MaxReturn : 105.0
+Train_MinReturn : 51.0
+Train_AverageEpLen : 73.21428571428571
+Train_EnvstepsSoFar : 85116
+TimeSinceStart : 34.64961862564087
+Critic_Loss : 35.57652282714844
+Actor_Loss : 0.006725104991346598
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 81 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 82 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 83 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 84 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 85 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 86 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 87 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 88 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 89 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 90 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 115.75
+Eval_StdReturn : 8.347904205322266
+Eval_MaxReturn : 129.0
+Eval_MinReturn : 106.0
+Eval_AverageEpLen : 115.75
+Train_AverageReturn : 104.30000305175781
+Train_StdReturn : 13.653204917907715
+Train_MaxReturn : 120.0
+Train_MinReturn : 82.0
+Train_AverageEpLen : 104.3
+Train_EnvstepsSoFar : 95533
+TimeSinceStart : 38.78234386444092
+Critic_Loss : 78.98886108398438
+Actor_Loss : 0.012011528015136719
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 91 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 92 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 93 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 94 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 95 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 96 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 97 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 98 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 99 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+
+LOGGING TO:  /home/zzh/Desktop/CS285/cs285-homework-fall2021/hw3/cs285/scripts/../../data/q4_ac_1_100_CartPole-v0_02-01-2022_23-47-40 
+
+
+
+########################
+logging outputs to  /home/zzh/Desktop/CS285/cs285-homework-fall2021/hw3/cs285/scripts/../../data/q4_ac_1_100_CartPole-v0_02-01-2022_23-47-40
+########################
+Using GPU id 0
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 22.63157844543457
+Eval_StdReturn : 13.955608367919922
+Eval_MaxReturn : 67.0
+Eval_MinReturn : 9.0
+Eval_AverageEpLen : 22.63157894736842
+Train_AverageReturn : 27.648649215698242
+Train_StdReturn : 12.643160820007324
+Train_MaxReturn : 65.0
+Train_MinReturn : 11.0
+Train_AverageEpLen : 27.64864864864865
+Train_EnvstepsSoFar : 1023
+TimeSinceStart : 0.9789464473724365
+Critic_Loss : 0.0019927434623241425
+Actor_Loss : -0.001418664469383657
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 1 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 2 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 3 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 4 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 5 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 6 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 7 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 8 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 9 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 10 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 46.66666793823242
+Eval_StdReturn : 14.666666984558105
+Eval_MaxReturn : 84.0
+Eval_MinReturn : 32.0
+Eval_AverageEpLen : 46.666666666666664
+Train_AverageReturn : 54.894737243652344
+Train_StdReturn : 22.435626983642578
+Train_MaxReturn : 110.0
+Train_MinReturn : 26.0
+Train_AverageEpLen : 54.89473684210526
+Train_EnvstepsSoFar : 11270
+TimeSinceStart : 4.9665749073028564
+Critic_Loss : 0.5301573872566223
+Actor_Loss : -0.02346460334956646
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 11 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 12 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 13 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 14 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 15 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 16 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 17 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 18 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 19 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 20 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 126.25
+Eval_StdReturn : 16.498106002807617
+Eval_MaxReturn : 152.0
+Eval_MinReturn : 106.0
+Eval_AverageEpLen : 126.25
+Train_AverageReturn : 135.125
+Train_StdReturn : 19.858484268188477
+Train_MaxReturn : 170.0
+Train_MinReturn : 113.0
+Train_AverageEpLen : 135.125
+Train_EnvstepsSoFar : 21669
+TimeSinceStart : 9.007669925689697
+Critic_Loss : 0.5120815634727478
+Actor_Loss : -0.02571011520922184
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 21 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 22 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 23 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 24 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 25 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 26 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 27 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 28 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 29 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 30 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 134.0
+Eval_StdReturn : 2.1602468490600586
+Eval_MaxReturn : 137.0
+Eval_MinReturn : 132.0
+Eval_AverageEpLen : 134.0
+Train_AverageReturn : 135.5
+Train_StdReturn : 9.69536018371582
+Train_MaxReturn : 152.0
+Train_MinReturn : 122.0
+Train_AverageEpLen : 135.5
+Train_EnvstepsSoFar : 32515
+TimeSinceStart : 13.117603302001953
+Critic_Loss : 0.02559804916381836
+Actor_Loss : -0.0521220862865448
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 31 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 32 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 33 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 34 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 35 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 36 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 37 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 38 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 39 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 40 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 200.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 200.0
+Train_AverageReturn : 200.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 200.0
+Train_MinReturn : 200.0
+Train_AverageEpLen : 200.0
+Train_EnvstepsSoFar : 43057
+TimeSinceStart : 17.177079916000366
+Critic_Loss : 6.319614410400391
+Actor_Loss : -0.010923771187663078
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 41 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 42 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 43 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 44 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 45 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 46 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 47 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 48 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 49 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 50 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 171.6666717529297
+Eval_StdReturn : 12.684199333190918
+Eval_MaxReturn : 189.0
+Eval_MinReturn : 159.0
+Eval_AverageEpLen : 171.66666666666666
+Train_AverageReturn : 185.1666717529297
+Train_StdReturn : 10.636676788330078
+Train_MaxReturn : 200.0
+Train_MinReturn : 165.0
+Train_AverageEpLen : 185.16666666666666
+Train_EnvstepsSoFar : 53876
+TimeSinceStart : 21.349626779556274
+Critic_Loss : 0.39352282881736755
+Actor_Loss : -0.021494805812835693
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 51 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 52 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 53 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 54 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 55 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 56 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 57 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 58 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 59 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 60 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 134.0
+Eval_StdReturn : 7.071067810058594
+Eval_MaxReturn : 144.0
+Eval_MinReturn : 129.0
+Eval_AverageEpLen : 134.0
+Train_AverageReturn : 115.33333587646484
+Train_StdReturn : 9.988883018493652
+Train_MaxReturn : 136.0
+Train_MinReturn : 100.0
+Train_AverageEpLen : 115.33333333333333
+Train_EnvstepsSoFar : 64599
+TimeSinceStart : 25.448142051696777
+Critic_Loss : 0.924016535282135
+Actor_Loss : -0.047175098210573196
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 61 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 62 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 63 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 64 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 65 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 66 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 67 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 68 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 69 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 70 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 200.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 200.0
+Train_AverageReturn : 200.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 200.0
+Train_MinReturn : 200.0
+Train_AverageEpLen : 200.0
+Train_EnvstepsSoFar : 74944
+TimeSinceStart : 29.419381856918335
+Critic_Loss : 18.97245979309082
+Actor_Loss : 0.004552767146378756
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 71 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 72 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 73 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 74 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 75 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 76 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 77 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 78 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 79 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 80 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 200.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 200.0
+Train_AverageReturn : 200.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 200.0
+Train_MinReturn : 200.0
+Train_AverageEpLen : 200.0
+Train_EnvstepsSoFar : 84944
+TimeSinceStart : 33.316251277923584
+Critic_Loss : 19.96593475341797
+Actor_Loss : -0.013261005282402039
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 81 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 82 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 83 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 84 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 85 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 86 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 87 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 88 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 89 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 90 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 200.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 200.0
+Train_AverageReturn : 200.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 200.0
+Train_MinReturn : 200.0
+Train_AverageEpLen : 200.0
+Train_EnvstepsSoFar : 94944
+TimeSinceStart : 37.28431177139282
+Critic_Loss : 37.434871673583984
+Actor_Loss : -0.0035624001175165176
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 91 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 92 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 93 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 94 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 95 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 96 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 97 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 98 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 99 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+
+LOGGING TO:  /home/zzh/Desktop/CS285/cs285-homework-fall2021/hw3/cs285/scripts/../../data/q4_ac_10_10_CartPole-v0_02-01-2022_23-48-23 
+
+
+
+########################
+logging outputs to  /home/zzh/Desktop/CS285/cs285-homework-fall2021/hw3/cs285/scripts/../../data/q4_ac_10_10_CartPole-v0_02-01-2022_23-48-23
+########################
+Using GPU id 0
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 40.5
+Eval_StdReturn : 44.75768280029297
+Eval_MaxReturn : 160.0
+Eval_MinReturn : 12.0
+Eval_AverageEpLen : 40.5
+Train_AverageReturn : 27.648649215698242
+Train_StdReturn : 12.643160820007324
+Train_MaxReturn : 65.0
+Train_MinReturn : 11.0
+Train_AverageEpLen : 27.64864864864865
+Train_EnvstepsSoFar : 1023
+TimeSinceStart : 0.9848694801330566
+Critic_Loss : 2.195876121520996
+Actor_Loss : -0.02928435616195202
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 1 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 2 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 3 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 4 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 5 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 6 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 7 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 8 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 9 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 10 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 135.6666717529297
+Eval_StdReturn : 22.09575080871582
+Eval_MaxReturn : 166.0
+Eval_MinReturn : 114.0
+Eval_AverageEpLen : 135.66666666666666
+Train_AverageReturn : 147.85714721679688
+Train_StdReturn : 27.94601058959961
+Train_MaxReturn : 200.0
+Train_MinReturn : 117.0
+Train_AverageEpLen : 147.85714285714286
+Train_EnvstepsSoFar : 11415
+TimeSinceStart : 5.040961503982544
+Critic_Loss : 1.6438416242599487
+Actor_Loss : -0.06835414469242096
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 11 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 12 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 13 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 14 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 15 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 16 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 17 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 18 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 19 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 20 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 200.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 200.0
+Train_AverageReturn : 200.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 200.0
+Train_MinReturn : 200.0
+Train_AverageEpLen : 200.0
+Train_EnvstepsSoFar : 21880
+TimeSinceStart : 9.152474641799927
+Critic_Loss : 47.34625244140625
+Actor_Loss : 0.0020495587959885597
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 21 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 22 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 23 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 24 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 25 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 26 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 27 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 28 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 29 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 30 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 200.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 200.0
+Train_AverageReturn : 200.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 200.0
+Train_MinReturn : 200.0
+Train_AverageEpLen : 200.0
+Train_EnvstepsSoFar : 31880
+TimeSinceStart : 13.161695003509521
+Critic_Loss : 60.308815002441406
+Actor_Loss : -0.040147874504327774
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 31 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 32 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 33 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 34 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 35 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 36 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 37 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 38 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 39 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 40 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 200.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 200.0
+Train_AverageReturn : 200.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 200.0
+Train_MinReturn : 200.0
+Train_AverageEpLen : 200.0
+Train_EnvstepsSoFar : 41880
+TimeSinceStart : 17.094674825668335
+Critic_Loss : 115.73357391357422
+Actor_Loss : -0.012883595190942287
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 41 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 42 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 43 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 44 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 45 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 46 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 47 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 48 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 49 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 50 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 200.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 200.0
+Train_AverageReturn : 192.8333282470703
+Train_StdReturn : 13.909429550170898
+Train_MaxReturn : 200.0
+Train_MinReturn : 162.0
+Train_AverageEpLen : 192.83333333333334
+Train_EnvstepsSoFar : 52365
+TimeSinceStart : 21.186713695526123
+Critic_Loss : 163.51446533203125
+Actor_Loss : -0.00939477514475584
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 51 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 52 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 53 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 54 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 55 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 56 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 57 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 58 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 59 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 60 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 200.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 200.0
+Train_AverageReturn : 200.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 200.0
+Train_MinReturn : 200.0
+Train_AverageEpLen : 200.0
+Train_EnvstepsSoFar : 63516
+TimeSinceStart : 25.591007947921753
+Critic_Loss : 84.04328155517578
+Actor_Loss : -0.0512460395693779
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 61 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 62 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 63 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 64 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 65 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 66 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 67 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 68 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 69 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 70 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 200.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 200.0
+Train_AverageReturn : 190.8333282470703
+Train_StdReturn : 20.497289657592773
+Train_MaxReturn : 200.0
+Train_MinReturn : 145.0
+Train_AverageEpLen : 190.83333333333334
+Train_EnvstepsSoFar : 74801
+TimeSinceStart : 29.98040223121643
+Critic_Loss : 43.732505798339844
+Actor_Loss : 0.006196014583110809
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 71 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 72 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 73 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 74 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 75 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 76 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 77 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 78 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 79 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 80 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 200.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 200.0
+Train_AverageReturn : 200.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 200.0
+Train_MinReturn : 200.0
+Train_AverageEpLen : 200.0
+Train_EnvstepsSoFar : 84985
+TimeSinceStart : 33.97078204154968
+Critic_Loss : 57.69855880737305
+Actor_Loss : 0.04843469336628914
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 81 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 82 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 83 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 84 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 85 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 86 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 87 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 88 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 89 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 90 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 200.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 200.0
+Eval_MinReturn : 200.0
+Eval_AverageEpLen : 200.0
+Train_AverageReturn : 200.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 200.0
+Train_MinReturn : 200.0
+Train_AverageEpLen : 200.0
+Train_EnvstepsSoFar : 94985
+TimeSinceStart : 37.89062690734863
+Critic_Loss : 36.50477981567383
+Actor_Loss : 0.012904301285743713
+Initial_DataCollection_AverageReturn : 27.648649215698242
+Done logging...
+
+
+
+
+********** Iteration 91 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 92 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 93 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 94 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 95 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 96 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 97 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 98 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
+
+
+********** Iteration 99 ************
+
+Collecting data to be used for training...
+
+Training agent...
+
+Training agent using sampled data from replay buffer...
