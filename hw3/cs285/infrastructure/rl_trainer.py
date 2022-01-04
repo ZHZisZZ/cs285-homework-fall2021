@@ -54,17 +54,18 @@ class RL_Trainer(object):
         self.env = gym.make(self.params['env_name'])
         if 'env_wrappers' in self.params:
             # These operations are currently only for Atari envs
-            env = wrappers.Monitor(
+            import copy
+            render_env = params['env_wrappers'](copy.deepcopy(self.env), True)
+            self.params['agent_params']['render_env'] = render_env
+
+            self.env = wrappers.Monitor(
                 self.env,
                 os.path.join(self.params['logdir'], "gym"),
                 force=True,
                 # video_callable=(None if self.params['video_log_freq'] > 0 else False),
                 video_callable=False
             )
-            self.env = params['env_wrappers'](env)
-            import copy
-            self.render_env = params['env_wrappers'](copy.deepcopy(env), True)
-            self.params['agent_params']['render_env'] = self.render_env
+            self.env = params['env_wrappers'](self.env)
             self.mean_episode_reward = -float('nan')
             self.best_mean_episode_reward = -float('inf')
         if 'non_atari_colab_env' in self.params and self.params['video_log_freq'] > 0:
@@ -280,6 +281,8 @@ class RL_Trainer(object):
                 fps = 30 if self.params['env_name'] == 'PongNoFrameskip-v4' else 10
                 self.logger.log_paths_as_videos(eval_video_paths, self.agent.t, fps=fps, 
                                                 max_videos_to_save=1, video_title=f'eval_rollouts_{i}')
+
+                # breakpoint()
 
         #######################
         last_log = all_logs[-1]

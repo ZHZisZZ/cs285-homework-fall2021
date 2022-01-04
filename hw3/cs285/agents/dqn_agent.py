@@ -129,10 +129,7 @@ class DQNAgent(object):
             image_obs.append(last_obs)
 
             from cs285.infrastructure.atari_wrappers import _subprocess_frame84
-            # last_obs_stored = (
-            #     last_obs[:, :, 0] * 0.299 + 
-            #     last_obs[:, :, 1] * 0.587 + 
-            #     last_obs[:, :, 2] * 0.114).reshape(84, 84, 1)
+            
             last_obs_stored = _subprocess_frame84(last_obs)
             replay_buffer_idx = self.render_replay_buffer.store_frame(last_obs_stored)
 

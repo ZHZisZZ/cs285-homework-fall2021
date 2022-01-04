@@ -180,26 +180,27 @@ def wrap_deepmind_ram(env):
     return env
 
 
-def wrap_deepmind(env):
-    """Configure environment for DeepMind-style Atari.
-    """
-    # assert 'NoFrameskip' in env.spec.id
-    env = EpisodicLifeEnv(env)
-    env = NoopResetEnv(env, noop_max=30)
-    env = MaxAndSkipEnv(env, skip=4)
-    if 'FIRE' in env.unwrapped.get_action_meanings():
-        env = FireResetEnv(env)
-    env = ProcessFrame84(env)
-    env = ClipRewardEnv(env)
-    return env
+# def wrap_deepmind(env):
+#     """Configure environment for DeepMind-style Atari.
+#     """
+#     # assert 'NoFrameskip' in env.spec.id
+#     env = EpisodicLifeEnv(env)
+#     env = NoopResetEnv(env, noop_max=30)
+#     env = MaxAndSkipEnv(env, skip=4)
+#     if 'FIRE' in env.unwrapped.get_action_meanings():
+#         env = FireResetEnv(env)
+#     env = ProcessFrame84(env)
+#     env = ClipRewardEnv(env)
+#     return env
 
 
 def wrap_deepmind(env, render=False):
     """Configure environment for DeepMind-style Atari.
     """
     # assert 'NoFrameskip' in env.spec.id
-    env = EpisodicLifeEnv(env)
-    env = NoopResetEnv(env, noop_max=30)
+    if not render:
+        env = EpisodicLifeEnv(env)
+        env = NoopResetEnv(env, noop_max=30)
     env = MaxAndSkipEnv(env, skip=4)
     if 'FIRE' in env.unwrapped.get_action_meanings():
         env = FireResetEnv(env)
