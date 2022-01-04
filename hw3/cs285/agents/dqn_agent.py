@@ -1,17 +1,20 @@
+import copy
 import numpy as np
 
 from cs285.infrastructure.dqn_utils import MemoryOptimizedReplayBuffer, PiecewiseSchedule
 from cs285.policies.argmax_policy import ArgMaxPolicy
 from cs285.critics.dqn_critic import DQNCritic
+from cs285.infrastructure import utils
 
 
 class DQNAgent(object):
     def __init__(self, env, agent_params):
-
+        
+        self.agent_params = agent_params
         self.env = env
         self.agent_params = agent_params
         self.batch_size = agent_params['batch_size']
-        # import ipdb; ipdb.set_trace()
+        # breakpoint()
         self.last_obs = self.env.reset()
 
         self.num_actions = agent_params['ac_dim']
@@ -31,6 +34,10 @@ class DQNAgent(object):
             agent_params['replay_buffer_size'], agent_params['frame_history_len'], lander=lander)
         self.t = 0
         self.num_param_updates = 0
+
+        # for rgb rendering
+        self.render_env = agent_params['render_env']
+        self.render_replay_buffer = copy.deepcopy(self.replay_buffer)
 
     def add_to_replay_buffer(self, paths):
         pass
@@ -106,3 +113,56 @@ class DQNAgent(object):
 
         self.t += 1
         return log
+
+    # render for videos
+    def render_trajectory(self, max_path_length):
+        image_obs = []
+        steps = 0
+        # different from the replay buffer the model is training on
+        last_obs = self.render_env.reset()
+
+        while True:
+
+            # TODO store the latest observation ("frame") into the replay buffer
+            # HINT: the replay buffer used here is `MemoryOptimizedReplayBuffer`
+                # in dqn_utils.py
+            image_obs.append(last_obs)
+
+            from cs285.infrastructure.atari_wrappers import _subprocess_frame84
+            # last_obs_stored = (
+            #     last_obs[:, :, 0] * 0.299 + 
+            #     last_obs[:, :, 1] * 0.587 + 
+            #     last_obs[:, :, 2] * 0.114).reshape(84, 84, 1)
+            last_obs_stored = _subprocess_frame84(last_obs)
+            replay_buffer_idx = self.render_replay_buffer.store_frame(last_obs_stored)
+
+            action = self.actor.get_action(self.render_replay_buffer.encode_recent_observation())
+            
+            # TODO take a step in the environment using the action from the policy
+            # HINT1: remember that self.last_obs must always point to the newest/latest observation
+            # HINT2: remember the following useful function that you've seen before:
+                #obs, reward, done, info = env.step(action)
+            last_obs, reward, done, info = self.render_env.step(action)
+
+            # TODO store the result of taking this action into the replay buffer
+            # HINT1: see your replay buffer's `store_effect` function
+            # HINT2: one of the arguments you'll need to pass in is self.replay_buffer_idx from above
+            self.render_replay_buffer.store_effect(replay_buffer_idx, action, reward, done)
+
+            steps += 1
+            # TODO if taking this step resulted in done, reset the env (and the latest observation)
+            if done or steps >= max_path_length:
+                break
+        
+        return utils.Path(None, image_obs, None, None, None, None)
+        
+        
+    def render_n_trajectories(self, ntraj, max_path_length):
+        paths = []
+
+        for _ in range(ntraj):
+            
+            path = self.render_trajectory(max_path_length)
+            paths.append(path)
+
+        return paths

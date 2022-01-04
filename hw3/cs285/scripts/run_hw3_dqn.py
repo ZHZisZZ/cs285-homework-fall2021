@@ -68,7 +68,8 @@ def main():
 
     # convert to dictionary
     params = vars(args)
-    params['video_log_freq'] = -1 # This param is not used for DQN
+    if params['env_name'] == 'LunarLander-v3':
+        params['video_log_freq'] = -1 # This param is not used for DQN
     ##################################
     ### CREATE DIRECTORY FOR LOGGING
     ##################################

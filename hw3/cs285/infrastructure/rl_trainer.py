@@ -54,13 +54,17 @@ class RL_Trainer(object):
         self.env = gym.make(self.params['env_name'])
         if 'env_wrappers' in self.params:
             # These operations are currently only for Atari envs
-            self.env = wrappers.Monitor(
+            env = wrappers.Monitor(
                 self.env,
                 os.path.join(self.params['logdir'], "gym"),
                 force=True,
-                video_callable=(None if self.params['video_log_freq'] > 0 else False),
+                # video_callable=(None if self.params['video_log_freq'] > 0 else False),
+                video_callable=False
             )
-            self.env = params['env_wrappers'](self.env)
+            self.env = params['env_wrappers'](env)
+            import copy
+            self.render_env = params['env_wrappers'](copy.deepcopy(env), True)
+            self.params['agent_params']['render_env'] = self.render_env
             self.mean_episode_reward = -float('nan')
             self.best_mean_episode_reward = -float('inf')
         if 'non_atari_colab_env' in self.params and self.params['video_log_freq'] > 0:
@@ -68,7 +72,8 @@ class RL_Trainer(object):
                 self.env,
                 os.path.join(self.params['logdir'], "gym"),
                 force=True,
-                video_callable=(None if self.params['video_log_freq'] > 0 else False),
+                # video_callable=(None if self.params['video_log_freq'] > 0 else False),
+                video_callable=False
             )
             self.mean_episode_reward = -float('nan')
             self.best_mean_episode_reward = -float('inf')
@@ -265,6 +270,18 @@ class RL_Trainer(object):
     ####################################
     ####################################
     def perform_dqn_logging(self, all_logs):
+
+        # save eval rollouts as videos in tensorboard event file
+        if self.logvideo:
+            # split paths into different gifs
+            for i in range(MAX_NVIDEO):
+                eval_video_paths = self.agent.render_n_trajectories(1, MAX_VIDEO_LEN)
+
+                fps = 30 if self.params['env_name'] == 'PongNoFrameskip-v4' else 10
+                self.logger.log_paths_as_videos(eval_video_paths, self.agent.t, fps=fps, 
+                                                max_videos_to_save=1, video_title=f'eval_rollouts_{i}')
+
+        #######################
         last_log = all_logs[-1]
 
         episode_rewards = get_wrapper_by_name(self.env, "Monitor").get_episode_rewards()
