@@ -16,8 +16,10 @@ for lambda in 0 0.95 0.99 1; do
         --env_name Hopper-v2 --ep_len 1000
         --discount 0.99 -n 300 -l 2 -s 32 -b 2000 -lr 0.001 \
         --reward_to_go --nn_baseline --action_noise_std 0.5 --gae_lambda ${lambda} \
-        --exp_name q5_b2000_r0.001_lambda${lambda} >> $LOG_PATH
+        --exp_name q5_b2000_r0.001_lambda${lambda} &
 done
+
+wait
 
 # move data file to experiment data directory
 mv $(find ${DATA_DIR} -maxdepth 1 -name '*q5_*' 2> /dev/null) $EXP_DIR

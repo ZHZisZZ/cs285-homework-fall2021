@@ -13,8 +13,9 @@ cat $0 >> $LOG_PATH; echo "\n\n" >> $LOG_PATH
 
 for seed in 1 2 3
 do 
-   python cs285/scripts/run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q2_dqn_${seed} --seed ${seed} >> $LOG_PATH
-   python cs285/scripts/run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q2_doubledqn_${seed} --double_q --seed ${seed} >> $LOG_PATH
+   python cs285/scripts/run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q2_dqn_${seed} --seed ${seed} &
+   python cs285/scripts/run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q2_doubledqn_${seed} --double_q --seed ${seed} &
+   wait
 done
 
 # move data file to experiment data directory

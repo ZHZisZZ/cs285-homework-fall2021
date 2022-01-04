@@ -17,7 +17,7 @@ python cs285/scripts/run_hw3_dqn.py \
 
 # python cs285/scripts/run_hw3_dqn.py \
 #     --env_name PongNoFrameskip-v4 --exp_name q1_pong \
-#     --video_log_freq 1000000 >> $LOG_PATH
+#     --video_log_freq 500000 >> $LOG_PATH
 
 # move data file to experiment data directory
 mv $(find ${DATA_DIR} -maxdepth 1 -name '*q1*' 2> /dev/null) $EXP_DIR

@@ -17,8 +17,9 @@ for b in 5000 1000 500; do
     python cs285/scripts/run_hw2.py --env_name InvertedPendulum-v2 \
         --ep_len 1000 --discount 0.9 -n 100 -l 2 -s 64 -b $b -lr $r -rtg \
         --eval_batch_size 1000 \
-        --exp_name q2_b${b}_r${r} >> $LOG_PATH
+        --exp_name q2_b${b}_r${r} &
     done
+    wait
 done
 
 # move data file to experiment data directory
